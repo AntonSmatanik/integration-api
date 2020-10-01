@@ -24,7 +24,7 @@ export class OrderService {
             this.logger.logAPIinfo("OP Tiger API", "Get Order", id, actualState);
         } catch (e) {
             this.logger.logAPIerror(e, "OP Tiger API", "Get Order");
-            setTimeout(() => this.processOrder(id, previousState), config.orderCheckInterval );
+            setTimeout(() => this.processOrder(id, previousState), config.orderCheckInterval);
             return;
         }
 
@@ -35,7 +35,7 @@ export class OrderService {
                     this.logger.logAPIinfo("Partner API", "Patch Order", id, actualState);
                 } catch (e) {
                     this.logger.logAPIerror(e, "Partner API", "Patch Order");
-                    setTimeout(() => this.processOrder(id, previousState), config.orderCheckInterval );
+                    setTimeout(() => this.processOrder(id, previousState), config.orderCheckInterval);
                     return;
                 }
             }
@@ -45,13 +45,13 @@ export class OrderService {
                 this.logger.logDBinfo('Order updated', id, actualState);
             } catch (e) {
                 this.logger.logDBerror(e);
-                setTimeout(() => this.processOrder(id, previousState), config.orderCheckInterval );
+                setTimeout(() => this.processOrder(id, previousState), config.orderCheckInterval);
                 return;
             }
         }
 
         if (actualState !== config.ordersStates.final) {
-            setTimeout(() => this.processOrder(id, actualState), config.orderCheckInterval );
+            setTimeout(() => this.processOrder(id, actualState), config.orderCheckInterval);
         }
     }
 }

@@ -23,10 +23,6 @@ export class AppController {
     private orderService: OrderService,
   ) { }
 
-  getCarierCode(carrierKey: string): number {
-    return config.carriers[carrierKey];
-  }
-
   transformOrder(order: Order): TransformedOrder {
     return {
       OrderID: order.id.toString(),
@@ -38,7 +34,7 @@ export class AppController {
 
   transformShipping(order: Order): TransformedShipping {
     return {
-      CarrierID: this.getCarierCode(order.carrierKey),
+      CarrierID: config.carriers[order.carrierKey],
     }
   };
 
@@ -48,7 +44,7 @@ export class AppController {
       AddressLine2: order.addressLine2,
       City: order.city,
       Company: order.company,
-      CountryCode: countries.getCode("Czechia"),
+      CountryCode: countries.getCode(order.country),
       Email: order.email,
       PersonName: order.fullName,
       Phone: order.phone,
@@ -164,9 +160,7 @@ export class AppController {
       return;
     }
 
-    setTimeout(() =>
-      this.orderService.processOrder(order.id, config.ordersStates.first), config.orderCheckInterval
-    );
+    setTimeout(() => this.orderService.processOrder(order.id, config.ordersStates.first), config.orderCheckInterval);
 
     res.status(result.status).send(result.data);
   }
