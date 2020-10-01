@@ -156,7 +156,7 @@ export class AppController {
       this.logger.logAPIinfo("OP Tiger API", "Post Order", order.id, config.ordersStates.first);
     } catch (e) {
       this.logger.logAPIerror(e, "OP Tiger API", "Post Order");
-      res.status(e.response.status).send(e.response.data);
+      res.status(500).send(e.response.data);
       return;
     }
 
