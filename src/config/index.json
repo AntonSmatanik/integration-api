@@ -1,0 +1,43 @@
+{
+    "logging": {
+        "name": "integration-api"
+    },
+    "opTigerAPI": {
+        "baseURL": "https://us-central1-node-task-assignment.cloudfunctions.net/oapi/api"
+    },
+    "partnerAPI": {
+        "baseURL": "https://us-central1-node-task-assignment.cloudfunctions.net/papi/api"
+    },
+    "dbServer": {
+        "host": "cluster0.5pl6l.mongodb.net",
+        "user": "admin",
+        "pass": "XNJrHstfERgCPH6",
+        "databases": [
+            {
+                "name": "integration_service",
+                "schemas": {
+                    "orders": "orders",
+                    "products": "products",
+                    "shippings": "shippings",
+                    "deliveryAddresses": "deliveryAddresses"
+                }
+            }
+        ]
+    },
+    "carriers": {
+        "DPD": 1001,
+        "DHL": 1002,
+        "DHL Express": 1003,
+        "UPS": 1004,
+        "GLS": 1005
+    },
+    "orderCheckInterval": 5000,
+    "auth": {
+        "x-api-key": "UJbs62MP41dFgGaSCcvs5MP48dFGgGz"
+    },
+    "ordersStates": {
+        "first": "New",
+        "invalid": "Invalid",
+        "final": "Finished"
+    }
+}
