@@ -8,7 +8,7 @@ import { TransformedOrder } from '../interfaces/orders';
 export class OPTigerAPIService {
   private headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Basic VGVzdFVzZXI6MkFzZjI3ZERWY3ZkOHNkMWRmU2Zk',
+    'Authorization': config.auth.opTigerAPI.authorization,
   };
 
   constructor(private httpService: HttpService) { }

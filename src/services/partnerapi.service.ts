@@ -7,7 +7,7 @@ import * as config from '../config/index.json';
 export class PartnerAPIService {
   private headers = {
     'Content-Type': 'application/json',
-    'X-API-KEY': 'KdofdDxc2Asf27dDVcvd8sd1dfSfdv1',
+    'X-API-KEY': config.auth.partnerAPI["x-api-key"],
   };
 
   constructor(private httpService: HttpService) { }

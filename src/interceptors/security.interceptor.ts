@@ -12,7 +12,7 @@ export class SecurityInterceptor implements NestInterceptor {
     ) { }
 
     intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-        if (context.switchToHttp().getRequest().headers['x-api-key'] !== config.auth["x-api-key"]) {
+        if (context.switchToHttp().getRequest().headers["x-api-key"] !== config.auth.application["x-api-key"]) {
             this.logger.logAuthResult(false);
             throw new UnauthorizedException();
         }

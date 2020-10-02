@@ -33,7 +33,15 @@
     },
     "orderCheckInterval": 5000,
     "auth": {
-        "x-api-key": "UJbs62MP41dFgGaSCcvs5MP48dFGgGz"
+        "application" : {
+            "x-api-key": "UJbs62MP41dFgGaSCcvs5MP48dFGgGz"
+        },
+        "partnerAPI" : {
+            "x-api-key": "KdofdDxc2Asf27dDVcvd8sd1dfSfdv1"
+        },
+        "opTigerAPI" : {
+            "authorization" : "Basic VGVzdFVzZXI6MkFzZjI3ZERWY3ZkOHNkMWRmU2Zk"
+        }
     },
     "ordersStates": {
         "first": "New",
